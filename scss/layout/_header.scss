@@ -1,0 +1,159 @@
+@use "../utils/variables" as var;
+
+#navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: var.$bgc-black;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+#navbar.navbar-shrink {
+  height: 60px;
+  box-shadow: 0 0 10px 5px var.$bgc-black;
+}
+
+.nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__list {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    @media (max-width: 990px) {
+      display: none;
+    }
+    a {
+      color: var.$white-color;
+      font-family: var.$primary-font;
+      font-size: 16px;
+      line-height: 24px;
+      position: relative;
+      transition: 0.5s;
+      padding: 5px 10px;
+    }
+    a:hover {
+      background-color: #ffd3af;
+      color: var.$black-color;
+    }
+    a::before {
+      content: "";
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      height: 12px;
+      width: 12px;
+      border: 3px solid #ffd3af;
+      border-width: 0 0 3px 3px;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    a::after {
+      content: "";
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      height: 12px;
+      width: 12px;
+      border: 3px solid #ffd3af;
+      border-width: 3px 3px 0 0;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    a:hover::before {
+      opacity: 1;
+      bottom: -8px;
+      left: -8px;
+    }
+    a:hover::after {
+      opacity: 1;
+      top: -8px;
+      right: -8px;
+    }
+    button {
+      background-color: transparent;
+      width: 25px;
+      font-size: 22px;
+      color: var.$white-color;
+    }
+  }
+  &__end {
+    display: none;
+    @media (max-width: 990px) {
+      display: flex;
+      gap: 20px;
+      .mode-btn {
+        font-size: 28px;
+        background-color: transparent;
+        color: var.$white-color;
+      }
+      #navbar-open {
+        font-size: 28px;
+        background-color: transparent;
+        color: var.$white-color;
+      }
+    }
+  }
+}
+
+#active__nav {
+  color: #ffd3af;
+}
+
+#active__nav:hover {
+  color: var.$black-color;
+}
+
+// TOGGLE
+
+#navbar-responsive {
+  position: fixed;
+  top: -100%;
+  bottom: 0;
+  left: 0;
+  height: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 45px;
+  padding-left: 40px;
+  align-items: start;
+  background-color: var.$white-color;
+  background-color: var.$bgc-black;
+  transition: 0.5s;
+  z-index: 100;
+  box-shadow: 0 0 10px 5px black;
+  #navbar-close {
+    position: absolute;
+    top: 26px;
+    right: 21px;
+    font-size: 25px;
+    background-color: transparent;
+    color: red;
+  }
+  .nav__list__res {
+    display: grid;
+  }
+  .logo {
+    padding-right: 70px;
+    margin-bottom: 30px;
+  }
+  li {
+    margin-bottom: 10px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  a {
+    color: var.$white-color;
+    font-family: var.$primary-font;
+    font-size: 18px;
+  }
+}
+
+

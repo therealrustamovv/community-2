@@ -1,0 +1,64 @@
+@use "../utils/variables" as var;
+
+#subscribe {
+  background-color: var.$white-color;
+  padding: 96px 20px;
+}
+
+.subscribe {
+  padding: 96px;
+  background-color: #666dff;
+  position: relative;
+  .subscribe__kvadrat {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .subscribe__shape {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 120px;
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  &__left {
+    p {
+      color: var.$white-color;
+      font-family: var.$primary-font;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 13px;
+    }
+    h3 {
+      max-width: 488px;
+      color: var.$white-color;
+      font-family: var.$secondary-font;
+      font-size: 36px;
+      line-height: 54px;
+    }
+  }
+  &__right {
+    form {
+      max-width: 454px;
+      input {
+        width: 100%;
+        color: var.$p-color;
+        font-family: var.$primary-font;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 20px 0 20px 29px;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
